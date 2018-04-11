@@ -27,10 +27,6 @@ anymore.
 
 * bash, git, gnupg, gawk
 
-## docker tags
-
-[![Run Status](https://api.shippable.com/projects/589913a86ee43c0f00b47cb6/badge?branch=master)](https://app.shippable.com/projects/589913a86ee43c0f00b47cb6)
-
 ## building
 
 ```bash
