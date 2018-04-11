@@ -2,9 +2,10 @@
 FROM alpine:3.7
 
 LABEL \
-      name="aries1980/git_secret" \
-      vendor="sortuniq"            \
-      description="tools to run git-secret"
+      org.label-schema.name="aries1980/git_secret" \
+      org.label-schema.schema-version=1.0 \
+      org.label-schema.description="Alpine-based image for git-secret" \
+      org.label-schema.vendor="https://janosfeher.com"
 
 COPY alpine_build_scripts/* /alpine_build_scripts/
 
@@ -13,13 +14,10 @@ RUN sh /alpine_build_scripts/install_git-secret.sh \
 
 # built with additional labels:
 #
-# org.label-schema.schema-version = "1.0"
-# org.label-schema.version="dirty"
-# org.label-schema.build-date=$(date +'%Y%m%d%H%M%S')
-# org.label-schema.name="Alpine-based image for git-secret"
-# org.label-schema.url="https://github.com/aries1980/docker_git_secret"
-# org.label-schema.vcs-url="https://github.com/aries1980/docker_git_secret"
-# org.label-schema.vendor="https://janosfeher.com"
+# org.label-schema.schema-version
+# org.label-schema.build-date
+# org.label-schema.url
+# org.label-schema.vcs-url
 # misc.git_version
 # misc.git_secret_sha
 # misc.gnupg_version

@@ -110,19 +110,17 @@ labels() {
     gs=$(git_sha) || return 1
     gb=$(git_branch) || return 1
     gt=$(git describe 2>/dev/null || echo "no-git-tag")
+    n=$(img_name) || return 1
 
     cat<<EOM
-    --label org.label-schema.schema-version = "1.0"
-    --label org.label-schema.version="dirty"
+    --label org.label-schema.version=dirty
     --label org.label-schema.build-date=$(date +'%Y%m%d%H%M%S')
-    --label org.label-schema.name="Alpine-based image for git-secret"
-    --label org.label-schema.url="https://github.com/aries1980/docker_git_secret"
-    --label org.label-schema.vcs-url="https://github.com/aries1980/docker_git_secret"
-    --label org.label-schema.vendor="https://janosfeher.com"
+    --label org.label-schema.name=$n
+    --label org.label-schema.url=https://github.com/aries1980/docker_git_secret
+    --label org.label-schema.vcs-url=$gu
     --label misc.git_version=$gv
     --label misc.git_secret_sha=$gsv
     --label misc.gnupg_version=$gpgv
-    --label misc.build_git_uri=$gu
     --label misc.build_git_sha=$gs
     --label misc.build_git_branch=$gb
     --label misc.build_git_tag=$gt
@@ -140,7 +138,7 @@ docker_build(){
     echo "INFO: adding these labels:"
     echo "$labels"
     echo "INFO: building $n:$IMG_TAG"
-
+set -x
     docker build --no-cache=true --force-rm $labels -t $n:$IMG_TAG .
 }
 
