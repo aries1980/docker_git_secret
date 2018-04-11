@@ -13,14 +13,18 @@ RUN sh /alpine_build_scripts/install_git-secret.sh \
 
 # built with additional labels:
 #
-# version
-# opsgang.git_version
-# opsgang.git_secret_sha
-# opsgang.gnupg_version
-#
-# opsgang.build_git_uri
-# opsgang.build_git_sha
-# opsgang.build_git_branch
-# opsgang.build_git_tag
-# opsgang.built_by
-#
+# org.label-schema.schema-version = "1.0"
+# org.label-schema.version="dirty"
+# org.label-schema.build-date=$(date +'%Y%m%d%H%M%S')
+# org.label-schema.name="Alpine-based image for git-secret"
+# org.label-schema.url="https://github.com/aries1980/docker_git_secret"
+# org.label-schema.vcs-url="https://github.com/aries1980/docker_git_secret"
+# org.label-schema.vendor="https://janosfeher.com"
+# misc.git_version
+# misc.git_secret_sha
+# misc.gnupg_version
+# misc.build_git_uri
+# misc.build_git_sha
+# misc.build_git_branch
+# misc.build_git_tag
+# misc.built_by
